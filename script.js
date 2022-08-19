@@ -13,6 +13,8 @@ function computerPlay() {
     }
 }
 
+const result = document.querySelector(".result")
+
 const score1 = document.querySelector(".player")
 const score2 = document.querySelector(".computer")
 
@@ -21,7 +23,9 @@ function increment(score) {
     
 }
 
-
+function changeResult(outcome) {
+    result.innerText = outcome
+}
 
 
 
@@ -53,16 +57,19 @@ function playRound(playerSelection, computerSelection) {
     if (player == "ROCK") {
         choice(u, "ROCK")
         if (computerSelection == "Rock") {
+            changeResult("TIE")
             choice(c, "ROCK")
             return "Tie Game";
         }
         else if (computerSelection == "Paper") {
+            changeResult("LOSE")
             choice(c, "PAPER")
             increment(score2)
             return "You lose! Computer Wins!";
         }
         else {
             choice(c, "SCISSORS")
+            changeResult("WIN")
             increment(score1)
             return "You win! Computer loses!"
 
@@ -71,16 +78,19 @@ function playRound(playerSelection, computerSelection) {
     else if (player == "SCISSORS") {
         choice(u, "SCISSORS")
         if (computerSelection == "Rock") {
+            changeResult("LOSE")
             choice(c, "ROCK")
             increment(score2)
             return "You lose! Computer Wins!";
         }
         else if (computerSelection == "Paper") {
+            changeResult("WIN")
             choice(c, "PAPER")
             increment(score1)
             return "You win! Computer loses!"
         }
         else {
+            changeResult("TIE")
             choice(c, "SCISSORS")
             return "Tie Game";
         }
@@ -88,14 +98,17 @@ function playRound(playerSelection, computerSelection) {
     else {
         choice(u, "PAPER")
         if (computerSelection == "Rock") {
+            changeResult("WIN")
             increment(score1)
             return "You win! Computer loses!"
         }
         else if (computerSelection == "Paper") {
+            changeResult("TIE")
             choice(c, "PAPER")
             return "Tie Game";
         }
         else {
+            changeResult("LOSE")
             choice(c, "SCISSORS")
             increment(score2)
             return "You lose! Computer Wins!";
