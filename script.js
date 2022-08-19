@@ -1,3 +1,5 @@
+
+
 function computerPlay() {
     let randNum = Math.floor(Math.random() * 3);
     if (randNum == 0) {
@@ -11,50 +13,113 @@ function computerPlay() {
     }
 }
 
+const score1 = document.querySelector(".player")
+const score2 = document.querySelector(".computer")
+
+function increment(score) {
+    score.innerText = parseInt(score.innerText) + 1
+    
+}
+
+
+
+
+
+
+let buttons = document.querySelectorAll("button")
+buttons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+        const selection = button.name;
+        playRound(selection, computerPlay());
+        if (score1.innerHTML == "5") {
+            alert(`YOU WON ${score1.innerHTML} : ${score2.innerHTML}`)
+            location.reload()
+
+        }
+        else if (score2.innerHTML == "5") {
+            alert(`YOU LOST ${score1.innerHTML} : ${score2.innerHTML}`)
+            location.reload()
+        }
+    });
+});
+
+
+
+
 function playRound(playerSelection, computerSelection) {
     player = playerSelection.toUpperCase();
 
     if (player == "ROCK") {
+        choice(u, "ROCK")
         if (computerSelection == "Rock") {
+            choice(c, "ROCK")
             return "Tie Game";
         }
         else if (computerSelection == "Paper") {
+            choice(c, "PAPER")
+            increment(score2)
             return "You lose! Computer Wins!";
         }
         else {
+            choice(c, "SCISSORS")
+            increment(score1)
             return "You win! Computer loses!"
+
         }
     }
     else if (player == "SCISSORS") {
+        choice(u, "SCISSORS")
         if (computerSelection == "Rock") {
+            choice(c, "ROCK")
+            increment(score2)
             return "You lose! Computer Wins!";
         }
         else if (computerSelection == "Paper") {
+            choice(c, "PAPER")
+            increment(score1)
             return "You win! Computer loses!"
         }
         else {
+            choice(c, "SCISSORS")
             return "Tie Game";
         }
     }
     else {
+        choice(u, "PAPER")
         if (computerSelection == "Rock") {
+            increment(score1)
             return "You win! Computer loses!"
         }
         else if (computerSelection == "Paper") {
+            choice(c, "PAPER")
             return "Tie Game";
         }
         else {
+            choice(c, "SCISSORS")
+            increment(score2)
             return "You lose! Computer Wins!";
         }
     }
+
 }
+
+const u = document.querySelector(".you")
+const c = document.querySelector(".comp")
+
+function choice(p, c) {
+    p.innerText = c
+}
+
+
+
 
 function game() {
     let playerScore = 0;
     let computerScore = 0;
     for (i = 0; i < 5; i++) {
-        let player = prompt("Rock, Paper, or Scissors");
-        let result = playRound(player, computerPlay);
+        let player = buttons;
+        let result = playRound(player, computerPlay());
         if (result == "You win! Computer loses!") {
             playerScore += 1;
             console.log("You win round " + (i + 1));
@@ -78,6 +143,6 @@ function game() {
     }
 }
 
-game()
+//game()
 
 

@@ -1,0 +1,86 @@
+html, body {
+
+    height:100%;
+  }
+
+  body {
+    background-color: rgb(217, 210, 210);
+  }
+
+ 
+
+span {
+    position: fixed;
+    margin-left: 7px;
+
+    
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+}
+
+.score  {
+    font-weight: bold
+
+}
+
+.player {
+    margin: 30px;
+    color: rgb(39, 39, 153);
+}
+
+.computer {
+    margin: 30px;
+    color: rgb(225, 49, 49);
+}
+
+.action {
+    
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+   
+}
+
+.you {
+    margin: 1px;
+    padding: 10px;
+    color: rgb(39, 39, 153);
+
+    text-align: center;
+ 
+}
+
+.comp {
+    margin: 1px;
+    padding: 10px;
+    color: rgb(225, 49, 49);
+  
+  
+    text-align: center;
+
+}
+
+
+.game {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    display: block;
+    text-align: center;
+    font-weight: bolder;
+    padding: 20px;
+    margin: 20px;
+    width: 100px;
+    border-radius: 8px;
+
+}
+
+button:hover {
+    background-color: rgb(113, 146, 203);
+
+}
