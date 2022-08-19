@@ -17,22 +17,24 @@ span {
 }
 
 .score {
+    font-weight: bold;
     display: flex;
     justify-content: center;
+    
 }
 
-.score  {
-    font-weight: bold
 
-}
 
 .player {
-    margin: 30px;
+    margin-top: 200px ;
     color: rgb(39, 39, 153);
+    padding: 20px;
 }
 
 .computer {
-    margin: 30px;
+    margin-top: 200px;
+    padding: 20px;
+    
     color: rgb(225, 49, 49);
 }
 
